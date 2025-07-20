@@ -3,6 +3,8 @@
 **Official Repository:**
 You can find the official repository for MELFA robots [here](https://github.com/Mitsubishi-Electric-Asia/melfa_ros2_driver.git). The purpose of this repository is to guide you on how to set up the robot in the absence of the Windows configuration software.
 
+![MELFA Robot Loop Example](res/melfa_loop_video.gif)
+
 ## 1. Network Setup
 
 - Create a network on your system with the same subnet as the robot.
@@ -38,7 +40,7 @@ Once the program is running on the teach pendant and the network is set up on yo
 
 1. **Clone the repository** (with submodules) inside the `src` folder of your ROS2 workspace:
    ```bash
-   git clone --recursive https://github.com/harrisonseby/melfa-robot-setup.git
+   git clone --recursive https://github.com/Nodal-Centre-for-Robotics-and-AI-GECT/melfa-robot-setup.git
    ```
 
 2. **Install dependencies** from the root of your ROS2 workspace:

@@ -14,31 +14,14 @@ start_moveit = os.path.join(get_package_share_directory('melfa_rv5as_moveit_conf
 
 
 def generate_launch_description():
-    # Declare arguments that can be passed to start_controllers
-    declared_arguments = []
-    
-    declared_arguments.append(
-        DeclareLaunchArgument(
-            'use_fake_hardware',
-            default_value='true',
-            description='Start robot with fake hardware mirroring command to its states.',
-        )
-    )
-    
-
-    # # Path to the YAML config file
-    # config_file = os.path.join(get_package_share_directory('melfa_examples'), 'config', 'waypoints.yaml')
-
-    # # Parse the YAML file
-    # with open(config_file, 'r') as f:
-    #     waypoints_config = yaml.safe_load(f)
 
     return LaunchDescription([
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(start_controllers),
             launch_arguments={
-                'use_fake_hardware': 'true',
-
+                'use_fake_hardware': 'false',
+                'controller_type': "D",
+                'robot_ip': '192.168.0.20'
             }.items()
         ),
         TimerAction(
@@ -61,9 +44,6 @@ def generate_launch_description():
                     executable='melfa_loop_waypoints',
                     name='melfa_waypoints_node',
                     output='screen',
-                    # parameters=[
-                    #     {'waypoints': waypoints_config}
-                    # ]
                 )
             ]
         )
